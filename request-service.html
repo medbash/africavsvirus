@@ -96,15 +96,14 @@
 					<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
 						<h3>Menu</h3>
 						<a href="index.html" >home</a>
-						<a href="about.html">about CEP</a>
+						<a href="#">about CEP</a>
 						<a href="request-service.html" class="active">request essentials</a>
-						<a href="gallery.html">gallery</a>
-						<a href="typo.html">typo</a>
-						<a href="contact.html">contact</a>
+						<a href="#">register / sign-up</a>
+						<a href="#">contact</a>
 					</nav>
 					<div class="main buttonset">	
 						<!-- Class "cbp-spmenu-open" gets applied to menu and "cbp-spmenu-push-toleft" or "cbp-spmenu-push-toright" to the body -->
-						<button id="showRightPush"><img src="images/menu-icon.png" alt=""/></button>
+						<button id="showRightPush"><img src="images/icon.png" alt=""/></button>
 						<!--<span class="menu"></span>-->
 					</div>
 					<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
@@ -156,7 +155,7 @@
 				</div>
 			</div>
 
-			<form role="form" action="" method="post">
+			<form role="form" action="generate-request.php" method="post">
 				<div class="row setup-content" id="step-1">
 					<div class="col-xs-6 col-md-offset-3">
 						<div class="col-md-12">
@@ -169,6 +168,10 @@
 							<div class="form-group col-md-6">
 								<label class="control-label">Last Name</label>
 								<input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Last Name">
+							</div>
+							<div class="form-group col-md-12"> 
+								<label class="control-label" for="date">Date of Birth:</label>
+								<input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="date"/>
 							</div>
 							<div class="form-group col-md-6">
 								<label class="control-label">Phone Number</label>
@@ -251,16 +254,12 @@
 								</select>
 							</div>
 							<div class="form-group">
+								<label class="control-label">State/Province/Region</label>
+								<input maxlength="200" type="text" required="required" class="form-control" placeholder="State/Province/Region">
+							</div>
+							<div class="form-group">
 								<label class="control-label">Address</label>
 								<textarea required="required" class="form-control" placeholder="Enter your address"></textarea>
-							</div>
-							<div class="form-group">
-								<label class="control-label">Company Name</label>
-								<input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Name">
-							</div>
-							<div class="form-group">
-								<label class="control-label">Company Address</label>
-								<input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address">
 							</div>
 							<button class="btn btn-primary prevBtn btn-lg pull-left" type="button">Previous</button>
 							<button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Next</button>
@@ -270,7 +269,35 @@
 				<div class="row setup-content" id="step-3">
 					<div class="col-xs-6 col-md-offset-3">
 						<div class="col-md-12">
-							<h3> Step 3</h3>
+							<h3> Step 3</h3><br>
+							<h4>Nearest Organization</h4><br>
+							<div class="form-group">
+								<label class="control-label">Organization's Name:</label>
+								<input maxlength="200" type="text" required="required" class="form-control" placeholder="Organization's Name">
+							</div>
+							<div class="form-group">
+								<label for="country">Type of Organization:</label>
+								<select class="form-control" id="country">
+									<option selected>Primary Healthcare Center</option>
+									<option value="NGO">NGO</option>
+									<option value="Charitable Foundation">Charitable Foundation</option>
+									<option value="Community Center">Community Center</option>
+									<option value="Hospital">Hospital</option>
+									<option value="Mosque/Church">Mosque/Church</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="country">Your Request:</label>
+								<select class="form-control" id="country">
+									<option selected>Food/Water</option>
+									<option value="drugs">Drugs/Medication</option>
+									<option value="healthcare service">Healthcare Service</option>
+									<option value="PPEs/masks">PPEs/Masks</option>
+									<option value="temporary shelter">Temporary Shelter</option>
+									<option value="Isolation Camp">Isolation Camp</option>
+								</select>
+							</div>
+							<br>
 							<button class="btn btn-primary prevBtn btn-lg pull-left" type="button">Previous</button>
 							<button class="btn btn-success btn-lg pull-right" type="submit">Submit</button>
 						</div>
@@ -361,5 +388,5 @@
 					$('div.setup-panel div a.btn-primary').trigger('click');
 				});
 			</script>
-		</body>
-		</html> 
+</body>
+</html> 
