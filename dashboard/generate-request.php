@@ -1,4 +1,64 @@
 <?php
+// class contact {
+//     public function __construct()
+//     {
+//         require_once('config.php');
+//         $this->post = $_POST;
+//         $this->db = new mysqli(
+// 			$config['host'],
+//             $config['username'],
+//             $config['password'],
+//             $config['database']
+// 		);
+		
+		
+//         $this->response = 0;
+//         return true;
+//     }
+//     public function save()	
+//     {
+// 		$this->firstname = $this->$_POST['firstname'];
+// 		$this->lastname = $this->$_POST['lastname'];
+// 		$this->date = $this->$_POST['date'];
+//         $this->mobile = $this->$_POST['mobile']; 
+//         $this->email = $this->$_POST['email']; 
+//         $this->country = $this->$_POST['country']; 
+//         $this->state = $this->$_POST['state'];
+// 	    $this->address = $this->$_POST['address']; 
+//         $this->organisation_name = $this->$_POST['organisation_name'];
+//         $this->organisation_type = $this->$_POST['organisation_type'];
+// 		$this->request = $this->$_POST['request'];
+// 	    $sql = "INSERT INTO `identity`
+//         (`firstname`,`lastname`,`date`,`mobile`, `email`,`country`,
+// 		`state`,`address`, `organistion_name`,`organisation_type`,`request`)
+//         values (
+//         '$this->firstname',
+//         '$this->lastname',
+//         '$this->date',
+//         '$this->mobile',
+//         '$this->email',
+//         '$this->country',
+//         '$this->state',
+//         '$this->address',
+//         '$this->organisation_name',
+//         '$this->organisation_type',
+//         '$this->request'
+// 		)
+//         ";
+//         return $this->response = $this->db->query($sql);
+//     }
+// }
+// if($_POST)
+// {
+//     $handle= new contact();
+// 	$handle->save();
+// 	if(!$handle) {
+// 		echo "Not yet registered.";
+// 	}
+// 	else {
+// 		echo "Registered Successfully";
+// 	}
+// }
 
 require_once('pdo.php');
 if(empty($_POST['firstname']) || empty($_POST['lastname']) || empty($_POST['date'])
@@ -7,6 +67,29 @@ if(empty($_POST['firstname']) || empty($_POST['lastname']) || empty($_POST['date
 || empty($_POST['organisation_type']) || empty($_POST['request']) ) {
              echo "All Informations must be provided.";
     }
+//     session_start();
+// 	if(isset($_POST['firstname'])
+// 	 && isset($_POST['lastname'])
+// 	  && isset($_POST['date'])
+// && isset($_POST['mobile']) 
+// && isset($_POST['email']) 
+// && isset($_POST['country']) 
+// && isset($_POST['state'])
+//  && isset($_POST['address']) 
+// && isset($_POST['organisation_name'])
+// && isset($_POST['organisation_type'])
+//  && isset($_POST['request'])) {
+//     $sql2 = "SELECT name from signup where email = :email and email=:email";
+//     $stmt2 = $pdo->prepare($sql2);
+//     $stmt2->execute(array(
+//         ':email'=> $_POST['email'],':mobile'=>$_POST['mobile']
+// 	));
+// }
+    // else if($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
+    //     $_SESSION['message'] = "<p1 style='color:red ;font-size:25px'>Email already in existence,try loggin in</p>";
+
+    //     echo "<p1>Email is already in existence,try loggin in first.</p1>";
+    // }   
  else {
         $sql = "INSERT INTO `identity` (firstname,lastname,email,mobile,date,country,state,
 		address,organisation_name,organisation_type,request) values
@@ -20,7 +103,9 @@ if(empty($_POST['firstname']) || empty($_POST['lastname']) || empty($_POST['date
 			':organisation_name' => $_POST['organisation_name'],
 			':organisation_type' => $_POST['organisation_type'],':request' => $_POST['request']
         ));
-     }
+        
+        // header('location:signup.php');
+    }
     
     if(!$stmt) {
         echo "You are not registered yet"; 
@@ -57,7 +142,7 @@ if(empty($_POST['firstname']) || empty($_POST['lastname']) || empty($_POST['date
 			content: " ";
 			width: 100%;
 			height: 1px;
- Q			background-color: #ccc;
+			background-color: #ccc;
 			z-order: 0;
 		}
 		.stepwizard-step {

@@ -1,0 +1,4 @@
+1)Go to the pdo file to change the host,username,password and database to the ones with the the server
+2)Create a table called identity inside the database with the following sql code.
+create table identity(firstname varchar(128),lastname varchar(128),mobile int(50),email varchar(128),date varchar(128),country varchar(128),state varchar(128),address varchar(128),organisation_name varchar(128),organisation_type varchar(128),request varchar(128));
+3)With everything set successfully, you will be able to see all the inputs from the user
